@@ -127,6 +127,30 @@ private:
 };
 ```
 ## 206.反转链表
+自己写的头插法
+```
+class Solution {
+public:
+    ListNode *dmhead = new ListNode(0);// 虚头结点
+    void addAtHead(int val,ListNode *dmhead) {// 头插法向虚节点后建立新的链表
+        ListNode *s = new ListNode();
+        s->val = val;
+        s->next = dmhead->next;
+        dmhead->next = s;
+    }
+    
+    ListNode* reverseList(ListNode* head) {
+        if(head == nullptr)return nullptr;  
+        Solution N; //新建一链表N
+        ListNode *p = head;//指向原结点L
+        while(p != nullptr){
+            N.addAtHead(p->val,N.dmhead);//传入N的虚头结点和当前L链表结点的值
+            p = p->next;
+        }
+        return N.dmhead->next;//从N的虚头之后开始
+    }
+};
+```
 双指针法
 ```
 class Solution {
