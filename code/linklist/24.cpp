@@ -26,8 +26,6 @@ public:
         ListNode *back = head->next;
         int flag = 0;
         while(cur && back){
-
-
             pre->next = back;
             cur->next = back->next;
             back->next = cur;
@@ -42,18 +40,6 @@ public:
         }
         return dmhead->next;
     }
-        // ListNode dummy(0);
-        // dummy.next = head;
-        // ListNode* prev = &dummy;
-        // while (prev->next && prev->next->next) {
-        //     ListNode* cur = prev->next;
-        //     ListNode* back = cur->next;
-        //     cur->next = back->next;
-        //     back->next = cur;
-        //     prev->next = back;
-        //     prev = cur;
-        // }
-        // return dummy.next;
     void print(){
         ListNode *p = dmhead;
         if(p->next==nullptr)return;
